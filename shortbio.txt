@@ -1,0 +1,15 @@
+Eric Grosse was VP Security &amp; Privacy Engineering at Google in
+Mountain View CA, leading a team of approximately 500 who ensure
+systems and data stay safe and users' privacy remains secure.
+Improved and wider use of SSL, stronger consumer authentication
+technology, detection and blocking of foreign espionage,
+transparency on government requests for data, sophisticated
+malware analysis, tools and frameworks for safer building of
+web applications are among the achievements of the Google
+Security Team.
+
+Before Google, Eric was a Research Director and Fellow at Bell
+Labs where he worked on security, networking, algorithms for
+approximation and visualization, software distribution, and
+scientific computing.  He has a PhD in Computer Science from
+Stanford.

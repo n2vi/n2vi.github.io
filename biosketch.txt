@@ -1,0 +1,128 @@
+Eric Grosse works on hardening open source systems, after
+retiring in Feb 2015 from the role of VP Security & Privacy
+Engineering at Google, leading a team of 500 who ensure
+systems and data stay safe and users' privacy remains secure.
+Improved and wider use of SSL, stronger consumer authentication
+technology, detection and blocking of foreign espionage,
+transparency on government requests for data, sophisticated
+malware analysis, tools and frameworks for safer building of
+web applications are among the achievements of the Google
+Security Team.
+
+Before Google, Eric was a Research Director and Fellow at Lucent
+Bell Labs where he worked on security, networking, algorithms for
+approximation and visualization, software distribution, and
+scientific computing.  He has a PhD in Computer Science from
+Stanford.
+
+
+
+
+
+At Bell Labs he founded an internal venture, CloudControl, that
+offered enterprise security officers a unique opportunity to
+quickly install up to a million address filters in carrier
+networks to block or rate-limit unwanted traffic hitting their
+enterprise from the Internet, based on automated analysis of
+web server and other logs.
+
+He applied encrypted key exchange to build an incrementally and
+quietly deployable single-signon solution, called Factotum, that
+stores credentials in the network and improves the security even
+of legacy authentication protocols, all without requiring new
+central or federated trust relationships.  This was part of a
+redesign of security in the Plan 9 operating system, which was
+well received at the USENIX Security conference.
+
+In an earlier security project, he supervised the team that built
+the prototype Lucent Managed Firewall, designed to be used like
+watertight compartment doors throughout an enterprise or provider
+with delegated control but central supervision.  He also collaborated
+on a VPN appliance that separates security administration from PC
+administration.  He built a smartcard based system for Lucent
+licensing applications.
+
+He co-founded and continues to help run the Netlib repository of
+mathematical software, widely used by the scientific computing
+community.  The systems issues involved in scaling that up were
+intriguing and led him to his current focus on security from his
+earlier work on numerical analysis.
+
+Algorithms for approximation and visualization, especially ones driven
+by problems from semiconductor design and fabrication, were the main
+theme of his first years at Bell Labs.  Powerful tools like splines
+enabled rapid addition of new transistor designs into circuit
+simulators that had previously used ad hoc, labor intensive
+semi-analytic models.  This was a challenge because of the multiple
+variables, the need to preserve monotonicity, and the continuity and
+performance requirements.  In combination with numerical optimization,
+some of these spline techniques allow unique nondestructive
+measurement of heterostructure lasers.  Other multivariate
+approximation innovations include: isosurface-aligned grids, critical
+to more accurate silicon energy band models for Boltzman transport;
+multivariate generalization of the lowess moving least squares
+algorithm, widely used in the statistical community for smoothing
+scattered data; first proof of non-obtuse, no-small-angle
+triangulation of polygons, a result that launched a flurry of
+additional work on the outside leading to some of today's best grid
+generators.
+
+He majored in mathematics as an undergraduate, then earned a PhD in
+Computer Science at Stanford University under Gene Golub with a thesis
+on tensor splines.  He has served on the editorial boards of ACM
+Trans.  Math.  Software, IEEE Computational Science & Engineering,
+Netlib/NHSE, Numerical Algorithms, SIAM Journal on Scientific
+Computing, SIAM News, SIAM Software Environments and Tools, SIAM
+Electronic Publishing and the SIAM Council and Board of Trustees.
+
+
+selected publications:
+
+Eric Grosse and Mayank Upadhyay.  Authentication at Scale.
+IEEE Security and Privacy 11(1) 15-22 (2013).
+
+Erik Anderlind et al.  IMS Security.  Bell Labs Technical Journal
+11(1) 37-58 (2006).     {my part was the future work section}
+
+Eric Grosse and Y. N. Lakshman.  Network processors applied to
+IPv4/IPv6 transition.  IEEE Networks}, July 2003.
+
+Russ Cox, Eric Grosse, Rob Pike, David Presotto, and Sean Quinlan.
+Security in Plan 9.  In Proceedings of the 11th USENIX Security
+Symposium, August 5--9, 2002, San Francisco, CA, USA.}, pages 3--16.
+ISBN 1-931971-00-5, USENIX Association, 2560 Ninth St., Suite 215,
+Berkeley CA 94710 USA.
+
+Cliff Young, Y. N. Lakshman, Tom Szymanski, John Reppy, David
+Presotto, Rob Pike, Girija Narlikar, Sape Mullender, and Eric Grosse.
+Protium, and infrastructure for partitioned applications.  In Eighth
+IEEE Workshop on Hot Topics in Operating Systems (HotOS-VIII).  May
+20--23, 2001, Schoss Elmau, Germany}, pages 41--46, 1109 Spring
+Street, Suite 300, Silver Spring, MD 20910, USA, 2001.  IEEE.
+
+Brenda S. Baker and Eric Grosse.  Local control over filtered {WWW}
+access.  In Fourth International World Wide Web Conference}, 103a
+Morris Street, Sebastopol, CA 95472, USA, December 1995.  O'Reilly \&
+{Associates, Inc.} Boston, MA.
+
+Eric Grosse.  Repository mirroring.  ACM Trans.  Math.  Software},
+21(1):89--97, March 1995.
+
+W. M. Coughran, Jr., W. Fichtner, and Eric Grosse.  Extracting
+transistor charges from device simulations by gradient fitting.  IEEE
+Trans.  on Computer-Aided Design}, 8:380--394, 1989.
+
+William S. Cleveland, Susan J. Devlin, and Eric Grosse.  Regression by
+local fitting: Methods, properties, and computational algorithms.  J.
+Econometrics}, 37:87--114, 1988.
+
+Brenda Baker, Eric Grosse, and Conor Rafferty.  Non-obtuse
+triangulation of polygons.  J. Discrete and Computational Geometry},
+3:147--168, 1988.
+
+Jack J. Dongarra and Eric Grosse.  Distribution of mathematical
+software via electronic mail.  Communications of the ACM},
+30:403--407, 1987.
+
+E. H. Grosse.  Tensor spline approximation.  Linear Algebra and Its
+applications}, 34:29--41, 1980.

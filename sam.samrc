@@ -1,0 +1,56 @@
+# Control-A/E jumps to beginning/end of line
+bind C a command bol
+bind C b command eol
+bind C e command scrolldownline
+bind C y command scrollupline
+
+# Control-H/L/J/K moves left/right/down/up
+bind C h command charleft
+bind C l command charright
+bind C j command linedown
+bind C k command lineup
+
+# Escape jumps between command file and current file
+bind * Escape command jump
+
+# Control-U deletes to beginning of line
+bind C u command delbol
+
+# Control-BackSpace deletes previous word
+bind C BackSpace command delword
+
+# Control-X/C/V/Q does cut/snarf/paste/exchange
+bind C x command cut
+bind C c command snarf
+bind C v command paste
+bind C q command exchange
+
+# Arrow keys and Page Up/Down work as expected
+bind * Up command lineup
+bind * Down command linedown
+bind * Left command charleft
+bind * Right command charright
+bind * Prior command scrollup
+bind * Next command scrolldown
+
+# All of the default movement key sequences were rebound as something else,
+# except for Control-D. Let's remove any special handling for that binding.
+unbind C d
+
+# Control-Return inserts a line below the current one
+bind C Return command send +-a/\n/
+
+# Control-N does a search, Control-Shift-N does a look
+bind C n command search
+bind CS n command look
+
+font Go Regular:size=10
+foreground black
+border black
+background lightyellow
+
+# Expand tabs and have tabstops every four columns
+tabs 4
+expandtabs true
+
+autoindent true
