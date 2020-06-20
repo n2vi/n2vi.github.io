@@ -13,8 +13,8 @@ local landmarks
 
 _2020-06-20 Eric Grosse_
 
-*Train Bridge* is the defunct structure before the Dumbarton bridge
-*Amphitheatre" is the two white conical structures towards Moffett Field NUQ
+ * Train Bridge is the defunct structure before the Dumbarton bridge
+ * Amphitheatre is the two white conical structures towards Moffett Field NUQ
 
 PAO tower often has permission to direct traffic in Moffett airspace, so especially keep your head on a swivel when turning base 31 during crowded times.
 
