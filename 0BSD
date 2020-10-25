@@ -1,12 +1,10 @@
+See also https://opensource.org/licenses/0BSD.
 In various places you may see me publish a file with
-Copyright (c) 20xx Eric Grosse n2vi.com/BSD2.txt
-which means that file is licensed by the following.
-I have since learned the "Zero-Clause BSD" license is what I was aiming
-for and am updating the reference when editing for some other reason.
+Copyright (c) 20xx Eric Grosse n2vi.com/0BSD
+which means that file is licensed by the following:
 
-Permission to use, copy, modify, and distribute this software for any
-purpose with or without fee is hereby granted, provided that the
-copyright notice appear in all copies.
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
 
 THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
