@@ -1,8 +1,8 @@
-Eric Grosse works on hardening open source systems, after
-retiring in Feb 2015 from the role of VP Security & Privacy
+Eric Grosse pursues extra-hardened open source systems, after
+retiring in 2015 from the role of VP Security & Privacy
 Engineering at Google, leading a team of 500 who ensure
 systems and data stay safe and users' privacy remains secure.
-Improved and wider use of SSL, stronger consumer authentication
+Improved and wider use of TLS, stronger consumer authentication
 technology, detection and blocking of foreign espionage,
 transparency on government requests for data, sophisticated
 malware analysis, tools and frameworks for safer building of
