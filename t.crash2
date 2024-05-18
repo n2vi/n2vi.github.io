@@ -1,0 +1,1451 @@
+
+dar 0xc00289e4a7 dsisr 0x40000000
+trap type 300 srr1 9000000000009032 at 9f1b6c lr 9f1abc
+
+Stopped at      pmap_remove+0x120:      lbz r3,23(r4)
+ddb{2}> trace
+
+pmap_remove+0x120
+uvm_unmap_kill_entry_withlock+0x1c0
+
+uvm_map_teardown+0x184
+
+uvmspace_free+0x70
+
+uvm_exit+0x38
+
+reaper+0x168
+
+proc_trampoline+0x10
+
+ddb{2}> show registers
+
+r0                          0x9f1abc    pmap_remove+0x70
+r1                0xc00000013b3f0b00
+
+r2                         0x100d000    .TOC.
+
+r3                0xc00000014dc06800
+
+r4                      0xc00289e490
+
+r5                              0x49
+
+r6                               0x3
+r7                              0xff
+
+r8                               0x3
+
+r9                0x9000000000001032
+
+r10               0x1032900000000000
+
+r11                                0
+
+r12                                0
+
+r13                      0x47e6faf08
+
+r14                                0
+
+r15                                0
+r16                                0
+
+r17                                0
+
+r18                                0
+
+r19                                0
+
+r20                                0
+
+r21                        0x1000594    nthreads
+
+r22                          0x40000
+r23                                0
+
+r24                        0x10ad000    bucket+0x448
+
+r25                        0x106b988    db_active
+r26                        0x10ec448    panicstr
+
+r27               0xc00000013c389b70
+
+r28                      0x49c096000
+
+r29                      0x49c0d6000
+
+r30               0xc00000013c389b90
+
+r31                         0x9e3830    reaper
+
+lr                          0x9f1abc    pmap_remove+0x70
+
+cr                        0x44400008
+
+xer                       0x20040000
+
+ctr                         0x6de7bc    generic_space_write_1
+
+iar                         0x9f1b6c    pmap_remove+0x120
+
+msr               0x9000000000009032
+
+dar                     0xc00289e4a7
+
+dsisr                     0x40000000
+pmap_remove+0x120:      lbz r3,23(r4)
+
+ddb{2}> set $lines=999
+
+ddb{2}> trace
+
+pmap_remove+0x120
+uvm_unmap_kill_entry_withlock+0x1c0
+
+uvm_map_teardown+0x184
+
+uvmspace_free+0x70
+
+uvm_exit+0x38
+
+reaper+0x168
+
+proc_trampoline+0x10
+
+ddb{2}> ps
+
+   PID     TID   PPID    UID  S       FLAGS  WAIT          COMMAND
+ 74034   13035  41171   8889  7   0xa000003                asm
+ 26349  377362  87577   8889  2  0x1a000003                asm
+
+ 59221   95544  79031   8889  2  0x1a000003                asm
+ 31371   26785  74770   8889  2  0x1a000003                asm
+
+ 32133  346655  59338   8889  2  0x1a000003                compile
+
+ 32133  351627  59338   8889  3  0x1e000083  nanoslp       compile
+
+ 32133  273923  59338   8889  3  0x1e000083  thrsleep      compile
+ 32133  119002  59338   8889  3  0x1e000083  thrsleep      compile
+
+ 32133  175295  59338   8889  3  0x1e000083  thrsleep      compile
+
+ 81955  134904  57083   8889  2  0x1a000003                go.test
+
+ 79767  498925  96290   8889  2  0x1a000003                asm
+
+ 79767  112420  96290   8889  3  0x1e000083  nanoslp       asm
+
+ 50605  166096  74770   8889  2  0x1a000003                compile
+ 50605  336595  74770   8889  2  0x1e000003                compile
+
+ 50605  278224  74770   8889  3  0x1e000083  thrsleep      compile
+
+ 50605   90347  74770   8889  3  0x1e000083  thrsleep      compile
+
+ 50605  401078  74770   8889  3  0x1e000083  thrsleep      compile
+
+ 66373  282147  87577   8889  2  0x1a000003                compile
+
+ 66373  310850  87577   8889  3  0x1e000083  nanoslp       compile
+
+ 66373   58337  87577   8889  3  0x1e000083  thrsleep      compile
+ 66373  115531  87577   8889  3  0x1e000083  thrsleep      compile
+
+ 66373   23658  87577   8889  3  0x1e000083  thrsleep      compile
+
+ 75018  460115  79031   8889  7  0x1a000003                compile
+
+ 75018  470889  79031   8889  3  0x1e000083  nanoslp       compile
+ 75018  401707  79031   8889  3  0x1e000083  thrsleep      compile
+
+ 75018  522408  79031   8889  3  0x1e000083  thrsleep      compile
+ 75018  185718  79031   8889  3  0x1e000083  thrsleep      compile
+
+ 88630  120129  59338   8889  2  0x1a000003                compile
+ 88630  327834  59338   8889  3  0x1e000083  nanoslp       compile
+ 88630  173701  59338   8889  3  0x1e000083  thrsleep      compile
+
+ 88630  237782  59338   8889  3  0x1e000083  thrsleep      compile
+ 88630  144405  59338   8889  3  0x1e000083  thrsleep      compile
+ 18564  510747  59338   8889  2  0x1a000003                compile
+ 18564   71543  59338   8889  3  0x1e000083  nanoslp       compile
+ 18564    6132  59338   8889  3  0x1e000083  thrsleep      compile
+ 18564  240063  59338   8889  3  0x1e000083  thrsleep      compile
+ 18564  236365  59338   8889  3  0x1e000083  thrsleep      compile
+ 18564  378777  59338   8889  3  0x1e000083  thrsleep      compile
+ 22221  456598  51362   8889  2  0x1a000003                asm
+ 22221  209596  51362   8889  3  0x1e000083  nanoslp       asm
+
+ 22221  299960  51362   8889  3  0x1e000083  thrsleep      asm
+ 22221   17954  51362   8889  3  0x1e000083  thrsleep      asm
+
+ 57410  108976  74770   8889  2  0x1a000003                compile
+  6584  314079  87577   8889  7  0x1a002803                compile
+
+  9433  218858  41171   8889  3  0x1a000083  thrsleep      compile
+
+  9433   76412  41171   8889  3  0x1e000083  nanoslp       compile
+  9433   57276  41171   8889  2  0x1e000003                compile
+
+  9433  268798  41171   8889  2  0x1e000003                compile
+  9433  179771  41171   8889  2  0x1e000003                compile
+
+ 61566  145686  79031   8889  2  0x1a000003                compile
+
+ 61566  115257  79031   8889  3  0x1e000083  nanoslp       compile
+
+ 61566  127576  79031   8889  2  0x1e000003                compile
+
+ 29981  453063  57083   8889  7  0x1a000003                go.test
+
+ 29981   80038  57083   8889  3  0x1e000083  nanoslp       go.test
+ 29981  447437  57083   8889  3  0x1e000083  thrsleep      go.test
+
+ 29981  206586  57083   8889  3  0x1e000083  thrsleep      go.test
+
+ 29981  369586  57083   8889  3  0x1e000083  thrsleep      go.test
+ 61582  457967  74770   8889  2  0x1a000003                compile
+
+ 61582  463348  74770   8889  2  0x1e000003                compile
+
+ 34343   48321  41171   8889  2  0x1a000003                compile
+
+ 34343  403758  41171   8889  3  0x1e000083  nanoslp       compile
+
+ 34343  123629  41171   8889  3  0x1e000083  thrsleep      compile
+ 34343  475834  41171   8889  3  0x1e000083  thrsleep      compile
+
+ 34343  232846  41171   8889  3  0x1e000083  thrsleep      compile
+
+  6623  492569  87577   8889  2  0x1a000003                compile
+
+ 12898   44567  87577   8889  2  0x1a000003                compile
+ 12898   51286  87577   8889  3  0x1e000083  nanoslp       compile
+
+ 12898  331259  87577   8889  2  0x1e000003                compile
+ 22519  299778  87577   8889  2  0x1a000003                compile
+
+ 22519  287119  87577   8889  3  0x1e000083  nanoslp       compile
+ 22519  247777  87577   8889  2  0x1e000003                compile
+
+ 22519  461975  87577   8889  2  0x1e000003                compile
+ 22519  373532  87577   8889  2  0x1e000003                compile
+ 81550  265390  79031   8889  2  0x1a000003                compile
+ 81550  123366  79031   8889  3  0x1e000083  nanoslp       compile
+ 81550  160078  79031   8889  3  0x1e000083  thrsleep      compile
+ 81550  314933  79031   8889  3  0x1e000083  thrsleep      compile
+ 81550  495969  79031   8889  3  0x1e000083  thrsleep      compile
+ 81550  246151  79031   8889  3  0x1e000083  thrsleep      compile
+ 45687  163364  96290   8889  2  0x1a000003                compile
+ 45687  327489  96290   8889  2  0x1e000483                compile
+
+ 45687  352611  96290   8889  3  0x1e000083  thrsleep      compile
+ 45687  268607  96290   8889  3  0x1e000083  thrsleep      compile
+
+ 45687  152971  96290   8889  3  0x1e000083  thrsleep      compile
+ 80865   80687  51362   8889  2  0x1a000003                asm
+ 80865   11589  51362   8889  3  0x1e000083  nanoslp       asm
+
+ 80865  143580  51362   8889  3  0x1e000083  thrsleep      asm
+ 80865  510084  51362   8889  3  0x1e000083  thrsleep      asm
+ 80865  156027  51362   8889  3  0x1e000083  thrsleep      asm
+ 62351  233072  41171   8889  3  0x1a000083  thrsleep      compile
+ 62351  189854  41171   8889  3  0x1e000083  nanoslp       compile
+
+ 62351  243592  41171   8889  2  0x1e000003                compile
+ 62351  300678  41171   8889  7  0x1e000003                compile
+ 96684  145973  79031   8889  2  0x1a000003                compile
+ 96684  143266  79031   8889  3  0x1e000083  nanoslp       compile
+
+ 96684   20945  79031   8889  3  0x1e000083  thrsleep      compile
+ 96684  506765  79031   8889  3  0x1e000083  thrsleep      compile
+ 96684  302299  79031   8889  3  0x1e000083  thrsleep      compile
+ 29142  100868  74770   8889  2  0x1a000003                compile
+ 49612  441870  74770   8889  3  0x1a000083  thrsleep      compile
+ 49612  208738  74770   8889  2  0x1e000003                compile
+ 49612  238347  74770   8889  3  0x1e000003  vmmaplk       compile
+ 49612  165332  74770   8889  3  0x1e000003  vmmaplk       compile
+ 49612  521571  74770   8889  3  0x1e000003  vmmaplk       compile
+ 26046  253382  57083   8889  2  0x1a000003                go.test
+ 26046  489518  57083   8889  3  0x1e000083  nanoslp       go.test
+ 26046  141958  57083   8889  3  0x1e000083  thrsleep      go.test
+ 26046  203620  57083   8889  3  0x1e000083  thrsleep      go.test
+ 26046  131220  57083   8889  3  0x1e000083  thrsleep      go.test
+ 77850  427577  96290   8889  4  0x1a082803                compile
+
+ 77850  305952  96290   8889  2  0x1e002803                compile
+ 77850   89882  96290   8889  4  0x1e082803                compile
+ 77850  317673  96290   8889  4  0x1e082803                compile
+ 77850  343598  96290   8889  4  0x1e082803                compile
+ 77850  346961  96290   8889  4  0x1e082803                compile
+ 41683  258391  74770   8889  2  0x1a000003                compile
+ 41683   26325  74770   8889  3  0x1e000083  nanoslp       compile
+ 41683  469330  74770   8889  3  0x1e000083  thrsleep      compile
+ 41683  483166  74770   8889  3  0x1e000083  thrsleep      compile
+
+ 20116  147063  14277   8889  2  0x18000003                clang
+
+ 38897  143203  96290   8889  2  0x1a000003                compile
+ 38897  344110  96290   8889  3  0x1e000083  nanoslp       compile
+
+ 56412  282188  74770   8889  3  0x1a000083  thrsleep      compile
+ 56412  265351  74770   8889  3  0x1e000083  nanoslp       compile
+ 56412  291707  74770   8889  2  0x1e000003                compile
+ 56412   83404  74770   8889  2  0x1e000003                compile
+ 70087   26861  41171   8889  2  0x1a000003                compile
+
+ 70087  480458  41171   8889  2  0x1e000003                compile
+ 70087   48937  41171   8889  3  0x1e000083  thrsleep      compile
+
+ 70087  411102  41171   8889  3  0x1e000083  thrsleep      compile
+ 70087   64115  41171   8889  3  0x1e000083  thrsleep      compile
+ 77685  188554  41171   8889  2  0x1a000003                compile
+ 77685  306883  41171   8889  3  0x1e000083  nanoslp       compile
+ 77685  514186  41171   8889  3  0x1e000083  thrsleep      compile
+ 77685  461859  41171   8889  3  0x1e000083  thrsleep      compile
+ 77685  491726  41171   8889  3  0x1e000083  thrsleep      compile
+ 62523   68620  51362   8889  2  0x1a000003                compile
+ 62523   11335  51362   8889  3  0x1e000003  vmmaplk       compile
+
+ 62523   90743  51362   8889  7  0x1e000003                compile
+
+ 29945  240108  57083   8889  2  0x1a000003                go.test
+ 29945  183823  57083   8889  2  0x1e000483                go.test
+
+ 29945   64893  57083   8889  3  0x1e000083  thrsleep      go.test
+ 29945    6279  57083   8889  3  0x1e000083  thrsleep      go.test
+ 29945   16588  57083   8889  3  0x1e000083  thrsleep      go.test
+ 73060  145763  57083   8889  3  0x1a000083  thrsleep      go.test
+ 73060   58902  57083   8889  3  0x1e000083  thrsleep      go.test
+
+ 73060  436057  57083   8889  3  0x1e000083  thrsleep      go.test
+ 73060  511780  57083   8889  3  0x1e000083  kqread        go.test
+ 73060   24908  57083   8889  3  0x1e000083  thrsleep      go.test
+ 73060   18785  57083   8889  3  0x1e000083  thrsleep      go.test
+  9092  486295  93794   8889  2  0x1a000003                compile
+  9092  190063  93794   8889  3  0x1e000083  nanoslp       compile
+
+  9092   59703  93794   8889  3  0x1e000083  thrsleep      compile
+  9092   72869  93794   8889  3  0x1e000083  thrsleep      compile
+  9092   85023  93794   8889  2  0x1e000003                compile
+  9092   52237  93794   8889  3  0x1e000083  thrsleep      compile
+  9092  187294  93794   8889  2  0x1e000003                compile
+ 14277  138868  23033   8889  3  0x1a000083  wait          cgo
+
+ 14277  137420  23033   8889  3  0x1e000083  thrsleep      cgo
+ 14277  342048  23033   8889  3  0x1e000083  kqread        cgo
+ 14277   82776  23033   8889  3  0x1e000083  thrsleep      cgo
+ 14277  511140  23033   8889  3  0x1e000083  thrsleep      cgo
+ 14277  429696  23033   8889  3  0x1e000083  thrsleep      cgo
+ 63138   13396  57083   8889  3  0x1a000083  thrsleep      go.test
+ 63138  143525  57083   8889  3  0x1e000083  nanoslp       go.test
+
+ 63138  307853  57083   8889  3  0x1e000083  kqread        go.test
+
+ 63138  189993  57083   8889  3  0x1e000083  thrsleep      go.test
+ 63138  302922  57083   8889  2  0x1e000003                go.test
+
+ 63138  433910  57083   8889  3  0x1e000083  thrsleep      go.test
+ 63138  126268  57083   8889  3  0x1e000083  thrsleep      go.test
+ 23033  492469  63669   8889  3  0x1a000083  thrsleep      go
+
+ 23033  184992  63669   8889  3  0x1e000083  thrsleep      go
+ 23033  375469  63669   8889  3  0x1e000083  thrsleep      go
+
+ 23033  320168  63669   8889  3  0x1e000083  thrsleep      go
+
+ 23033   12768  63669   8889  3  0x1e000083  wait          go
+
+ 23033  497877  63669   8889  3  0x1e000083  thrsleep      go
+ 23033  438873  63669   8889  3  0x1e000083  thrsleep      go
+ 23033   95632  63669   8889  3  0x1e000083  thrsleep      go
+
+ 60513   77437  93794   8889  3  0x1a000083  thrsleep      link
+
+ 60513   56860  93794   8889  3  0x1e000083  nanoslp       link
+ 60513  445902  93794   8889  2  0x1e000003                link
+
+ 60513  250209  93794   8889  3  0x1e000083  thrsleep      link
+
+ 60513   35376  93794   8889  3  0x1e000083  thrsleep      link
+
+ 60513  369791  93794   8889  3  0x1e000083  thrsleep      link
+ 60513  192195  93794   8889  3  0x1e000083  thrsleep      link
+
+ 60513  210237  93794   8889  3  0x1e000083  thrsleep      link
+ 96290  399453  43063   8889  3  0x1a000083  wait          go
+ 96290  273694  43063   8889  3  0x1e000083  thrsleep      go
+ 96290  145849  43063   8889  3  0x1e000083  thrsleep      go
+ 96290  224430  43063   8889  3  0x1e000083  wait          go
+ 96290  235350  43063   8889  3  0x1e000083  wait          go
+ 96290  165747  43063   8889  3  0x1e000083  wait          go
+
+ 96290  366939  43063   8889  3  0x1e000083  thrsleep      go
+ 96290   96129  43063   8889  3  0x1e000083  thrsleep      go
+ 96290   72252  43063   8889  3  0x1e000083  wait          go
+
+ 96290  446912  43063   8889  3  0x1e000083  wait          go
+ 96290  130432  43063   8889  3  0x1e000083  wait          go
+
+ 96290   61002  43063   8889  3  0x1e000083  wait          go
+
+ 96290   63271  43063   8889  3  0x1e000083  thrsleep      go
+ 96290  245276  43063   8889  3  0x1e000083  kqread        go
+ 96290  101731  43063   8889  3  0x1e000083  thrsleep      go
+ 79031   50473  43063   8889  3  0x1a000083  thrsleep      go
+
+ 79031  399124  43063   8889  3  0x1e000083  thrsleep      go
+ 79031  312828  43063   8889  3  0x1e000083  kqread        go
+ 79031   65212  43063   8889  2  0x1e000003                go
+
+ 79031  258169  43063   8889  3  0x1e000083  wait          go
+ 79031  441280  43063   8889  3  0x1e000083  thrsleep      go
+ 79031  493759  43063   8889  3  0x1e000083  thrsleep      go
+ 79031   70561  43063   8889  3  0x1e000083  wait          go
+ 79031  228665  43063   8889  3  0x1e000083  wait          go
+ 79031  268055  43063   8889  3  0x1e000083  wait          go
+ 79031  245498  43063   8889  3  0x1e000083  thrsleep      go
+ 79031  188299  43063   8889  3  0x1e000083  thrsleep      go
+ 79031  290481  43063   8889  3  0x1e000083  wait          go
+
+ 79031  442711  43063   8889  3  0x1e000083  thrsleep      go
+
+ 79031   77918  43063   8889  3  0x1e000083  wait          go
+ 79031  310517  43063   8889  3  0x1e000083  thrsleep      go
+
+ 59338  481302  43063   8889  3  0x1a000083  thrsleep      go
+
+ 59338  271317  43063   8889  2  0x1e000483                go
+ 59338  189136  43063   8889  3  0x1e000083  wait          go
+
+ 59338  168427  43063   8889  3  0x1e000083  wait          go
+
+ 59338  301138  43063   8889  3  0x1e000083  wait          go
+
+ 59338   20391  43063   8889  3  0x1e000083  wait          go
+ 59338  444998  43063   8889  3  0x1e000083  kqread        go
+
+ 59338  301817  43063   8889  3  0x1e000083  thrsleep      go
+
+ 59338  488025  43063   8889  3  0x1e000083  wait          go
+
+ 59338   68554  43063   8889  3  0x1e000083  wait          go
+
+ 59338  237283  43063   8889  3  0x1e000083  thrsleep      go
+
+ 59338  285349  43063   8889  3  0x1e000083  wait          go
+
+ 59338   62402  43063   8889  3  0x1e000083  thrsleep      go
+ 59338  235805  43063   8889  3  0x1e000083  wait          go
+
+ 59338  495139  43063   8889  3  0x1e000083  thrsleep      go
+
+ 59338  400009  43063   8889  3  0x1e000083  thrsleep      go
+
+ 59338   58542  43063   8889  3  0x1e000083  thrsleep      go
+
+ 74770    8310  43063   8889  3  0x1a000083  wait          go
+ 74770  368763  43063   8889  3  0x1e000083  thrsleep      go
+
+ 74770  380552  43063   8889  3  0x1e000083  wait          go
+
+ 74770  439127  43063   8889  3  0x1e000083  wait          go
+
+ 74770  398609  43063   8889  3  0x1e000083  wait          go
+
+ 74770  371205  43063   8889  3  0x1e000083  wait          go
+
+ 74770  138929  43063   8889  3  0x1e000083  kqread        go
+
+ 74770  100923  43063   8889  3  0x1e000083  thrsleep      go
+
+ 74770   58919  43063   8889  3  0x1e000083  thrsleep      go
+
+ 74770  519618  43063   8889  3  0x1e000083  thrsleep      go
+
+ 74770  166400  43063   8889  3  0x1e000083  wait          go
+ 74770  348174  43063   8889  3  0x1e000083  wait          go
+
+ 74770  340236  43063   8889  3  0x1e000083  wait          go
+
+ 74770  165996  43063   8889  3  0x1e000083  thrsleep      go
+
+ 74770  283696  43063   8889  3  0x1e000083  thrsleep      go
+
+ 87577  357975  43063   8889  3  0x1a000083  wait          go
+ 87577  498505  43063   8889  3  0x1e000083  thrsleep      go
+
+ 87577  180421  43063   8889  3  0x1e000083  wait          go
+
+ 87577  236342  43063   8889  3  0x1e000083  wait          go
+ 87577   96343  43063   8889  3  0x1e000083  wait          go
+ 87577  328019  43063   8889  3  0x1e000083  wait          go
+ 87577  459545  43063   8889  3  0x1e000083  thrsleep      go
+ 87577  185675  43063   8889  3  0x1e000083  wait          go
+ 87577  193279  43063   8889  3  0x1e000083  wait          go
+
+ 87577  215406  43063   8889  3  0x1e000083  thrsleep      go
+
+ 87577   99338  43063   8889  3  0x1e000083  kqread        go
+ 87577  329751  43063   8889  3  0x1e000083  thrsleep      go
+
+ 87577  362250  43063   8889  3  0x1e000083  wait          go
+ 87577  491608  43063   8889  3  0x1e000083  thrsleep      go
+ 87577  144593  43063   8889  3  0x1e000083  thrsleep      go
+ 51362  392250  43063   8889  3  0x1a000083  wait          go
+ 51362  195443  43063   8889  3  0x1e000083  thrsleep      go
+ 51362  327710  43063   8889  3  0x1e000083  thrsleep      go
+ 51362  325139  43063   8889  3  0x1e000083  thrsleep      go
+
+ 51362  446703  43063   8889  3  0x1e000083  wait          go
+ 51362  514798  43063   8889  3  0x1e000083  wait          go
+ 51362  147878  43063   8889  3  0x1e000083  thrsleep      go
+ 51362  235764  43063   8889  3  0x1e000083  thrsleep      go
+ 51362  455951  43063   8889  3  0x1e000083  thrsleep      go
+
+ 51362  255005  43063   8889  3  0x1e000083  thrsleep      go
+ 51362   56743  43063   8889  3  0x1e000083  wait          go
+ 51362  461483  43063   8889  3  0x1e000083  wait          go
+
+ 51362  259919  43063   8889  3  0x1e000083  thrsleep      go
+ 51362    7169  43063   8889  3  0x1e000083  kqread        go
+ 51362  130117  43063   8889  3  0x1e000083  wait          go
+ 51362  217187  43063   8889  3  0x1e000083  wait          go
+ 41171  318676  43063   8889  3  0x1a000083  wait          go
+ 41171  180998  43063   8889  3  0x1e000083  nanoslp       go
+ 41171  185604  43063   8889  3  0x1e000083  wait          go
+
+ 41171   46915  43063   8889  3  0x1e000083  wait          go
+ 41171  109761  43063   8889  2  0x1e000003                go
+ 41171  150426  43063   8889  3  0x1e000083  thrsleep      go
+ 41171  130383  43063   8889  3  0x1e000083  wait          go
+ 41171   16834  43063   8889  3  0x1e000083  thrsleep      go
+ 41171  123494  43063   8889  3  0x1e000083  thrsleep      go
+ 41171  101015  43063   8889  3  0x1e000083  wait          go
+
+ 41171  279829  43063   8889  7  0x1e000003                go
+ 41171  361700  43063   8889  3  0x1e000083  thrsleep      go
+
+ 41171  496202  43063   8889  3  0x1e000083  wait          go
+ 41171  179012  43063   8889  3  0x1e000083  kqread        go
+
+ 41171  156347  43063   8889  3  0x1e000083  thrsleep      go
+
+ 41171  112086  43063   8889  3  0x1e000083  thrsleep      go
+
+ 83817  498264  43063   8889  3  0x1a000083  thrsleep      go
+ 83817   10197  43063   8889  3  0x1e000083  thrsleep      go
+
+ 83817  354044  43063   8889  3  0x1e000083  wait          go
+ 83817  282806  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  517099  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  462514  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  443237  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  183409  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  105403  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  242729  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  337391  43063   8889  3  0x1e000083  thrsleep      go
+ 83817   90174  43063   8889  3  0x1e000083  thrsleep      go
+ 83817   14963  43063   8889  3  0x1e000083  thrsleep      go
+
+ 83817  320482  43063   8889  3  0x1e000083  thrsleep      go
+ 83817  410336  43063   8889  3  0x1e000083  thrsleep      go
+ 43063   18384  93794   8889  3  0x1a000083  kqread        link.test
+ 43063   50632  93794   8889  3  0x1e000083  thrsleep      link.test
+
+ 43063  181924  93794   8889  3  0x1e000083  wait          link.test
+ 43063  415372  93794   8889  3  0x1e000083  wait          link.test
+
+ 43063  423538  93794   8889  3  0x1e000083  wait          link.test
+
+ 43063  451720  93794   8889  3  0x1e000083  wait          link.test
+ 43063  262567  93794   8889  3  0x1e000083  wait          link.test
+
+ 43063  257093  93794   8889  3  0x1e000083  wait          link.test
+ 43063  481235  93794   8889  3  0x1e000083  wait          link.test
+ 43063  391431  93794   8889  3  0x1e000083  wait          link.test
+ 43063  502612  93794   8889  3  0x1e000083  thrsleep      link.test
+ 43063  431351  93794   8889  3  0x1e000083  thrsleep      link.test
+ 43063  244706  93794   8889  3  0x1e000083  thrsleep      link.test
+ 43063  250458  93794   8889  3  0x1e000083  thrsleep      link.test
+ 40123   61307  79599   8890  3   0x8100083  nanoslp       sleep
+ 57083  390036  93794   8889  3  0x1a000083  thrsleep      go.test
+ 57083  128080  93794   8889  3  0x1e000083  nanoslp       go.test
+ 57083    9680  93794   8889  3  0x1e000083  thrsleep      go.test
+ 57083   22179  93794   8889  3  0x1e000083  wait          go.test
+ 57083   53356  93794   8889  3  0x1e000083  wait          go.test
+
+ 57083  425156  93794   8889  3  0x1e000083  thrsleep      go.test
+
+ 57083  307345  93794   8889  2  0x1e000003                go.test
+ 57083  190513  93794   8889  3  0x1e000083  wait          go.test
+ 57083  110332  93794   8889  2  0x1e000003                go.test
+ 57083  113130  93794   8889  3  0x1e000083  thrsleep      go.test
+ 57083  279906  93794   8889  3  0x1e000083  wait          go.test
+ 57083  324723  93794   8889  3  0x1e000083  wait          go.test
+
+ 57083   44520  93794   8889  3  0x1e000083  thrsleep      go.test
+ 57083  216293  93794   8889  3  0x1e000083  wait          go.test
+ 57083  151760  93794   8889  3  0x1e000083  wait          go.test
+ 57083   92594  93794   8889  3  0x1e000083  thrsleep      go.test
+ 57083  123045  93794   8889  3  0x1e000083  wait          go.test
+ 57083  195019  93794   8889  3  0x1e000083  thrsleep      go.test
+ 63669  183793  93794   8889  3  0x1a000083  thrsleep      fix.test
+ 63669   25918  93794   8889  3  0x1e000083  thrsleep      fix.test
+ 63669  443568  93794   8889  3  0x1e000083  wait          fix.test
+ 63669  217804  93794   8889  3  0x1e000083  kqread        fix.test
+ 63669     469  93794   8889  3  0x1e000083  thrsleep      fix.test
+
+ 63669  387054  93794   8889  3  0x1e000083  thrsleep      fix.test
+
+ 63669  365058  93794   8889  3  0x1e000083  thrsleep      fix.test
+ 93794   50815  38696   8889  3  0x1a000083  thrsleep      go
+
+ 93794  137877  38696   8889  3  0x1e000083  nanoslp       go
+
+ 93794  141833  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  387048  38696   8889  3  0x1e000083  wait          go
+
+ 93794  318576  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  396706  38696   8889  3  0x1e000083  thrsleep      go
+
+ 93794  362491  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  501392  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  495374  38696   8889  3  0x1e000083  thrsleep      go
+ 93794   76142  38696   8889  3  0x1e000083  kqread        go
+ 93794   14502  38696   8889  2  0x1e000003                go
+ 93794  487238  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  498297  38696   8889  3  0x1e000083  thrsleep      go
+ 93794   47587  38696   8889  3  0x1e000083  wait          go
+
+ 93794    5584  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  226361  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  504993  38696   8889  3  0x1e000083  wait          go
+ 93794  383414  38696   8889  3  0x1e000083  thrsleep      go
+
+ 93794  203047  38696   8889  3  0x1e000083  thrsleep      go
+
+ 93794  340773  38696   8889  3  0x1e000083  thrsleep      go
+ 93794  377284  38696   8889  3  0x1e000083  wait          go
+
+ 93794  121413  38696   8889  3  0x1e000083  wait          go
+ 38696  110464  49270   8889  3  0x1a000083  wait          dist
+
+ 38696  326566  49270   8889  3  0x1e000083  thrsleep      dist
+ 38696   56095  49270   8889  3  0x1e000083  thrsleep      dist
+ 38696  396761  49270   8889  3  0x1e000083  thrsleep      dist
+
+ 38696   76159  49270   8889  3  0x1e000083  thrsleep      dist
+ 38696  384556  49270   8889  3  0x1e000083  thrsleep      dist
+ 38696  253177  49270   8889  3  0x1e000083  thrsleep      dist
+ 49270  400150  65636   8889  3  0x1a000083  thrsleep      go
+ 49270   15516  65636   8889  3  0x1e000083  thrsleep      go
+
+ 49270  171004  65636   8889  3  0x1e000083  thrsleep      go
+ 49270  189336  65636   8889  3  0x1e000083  thrsleep      go
+ 49270  272233  65636   8889  3  0x1e000083  thrsleep      go
+ 49270  260540  65636   8889  3  0x1e000083  thrsleep      go
+ 49270  273577  65636   8889  3  0x1e000083  wait          go
+ 49270  412777  65636   8889  3  0x1e000083  thrsleep      go
+ 65636  445298  25812   8889  3  0x18000083  thrsleep      result_adapter
+
+ 65636  106587  25812   8889  3  0x1c000083  thrsleep      result_adapter
+ 65636  110135  25812   8889  3  0x1c000083  thrsleep      result_adapter
+
+ 65636  442935  25812   8889  3  0x1c000083  wait          result_adapter
+ 65636  111059  25812   8889  3  0x1c000083  kqread        result_adapter
+
+ 65636  405629  25812   8889  3  0x1c000083  thrsleep      result_adapter
+
+ 65636  418475  25812   8889  3  0x1c000083  thrsleep      result_adapter
+ 65636   65779  25812   8889  3  0x1c000083  thrsleep      result_adapter
+
+ 65636  285691  25812   8889  3  0x1c000083  thrsleep      result_adapter
+ 65636  222110  25812   8889  3  0x1c000083  thrsleep      result_adapter
+
+ 65636   46605  25812   8889  3  0x1c000083  thrsleep      result_adapter
+ 65636   46027  25812   8889  3  0x1c000083  thrsleep      result_adapter
+
+ 65636   34965  25812   8889  3  0x1c000083  thrsleep      result_adapter
+ 25812  510852  38387   8889  3  0x18000083  thrsleep      rdb
+
+ 25812   70302  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812  208114  38387   8889  3  0x1c000083  wait          rdb
+
+ 25812  370567  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812  394939  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812  146970  38387   8889  3  0x1c000083  thrsleep      rdb
+ 25812  280277  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812  265853  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812  408355  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812   93511  38387   8889  3  0x1c000083  thrsleep      rdb
+ 25812  232682  38387   8889  3  0x1c000083  thrsleep      rdb
+
+ 25812  378746  38387   8889  3  0x1c000083  kqread        rdb
+
+ 38387  215184  42729   8889  3  0x18000083  kqread        golangbuild
+
+ 38387  307688  42729   8889  3  0x1c000083  thrsleep      golangbuild
+
+ 38387  519156  42729   8889  3  0x1c000083  thrsleep      golangbuild
+ 38387   73153  42729   8889  3  0x1c000083  thrsleep      golangbuild
+
+ 38387  348318  42729   8889  3  0x1c000083  thrsleep      golangbuild
+
+ 38387  215084  42729   8889  3  0x1c000083  thrsleep      golangbuild
+ 38387  195697  42729   8889  3  0x1c000083  wait          golangbuild
+
+ 38387   34461  42729   8889  3  0x1c000083  thrsleep      golangbuild
+ 38387  408826  42729   8889  3  0x1c000083  thrsleep      golangbuild
+ 38387  157989  42729   8889  3  0x1c000083  thrsleep      golangbuild
+ 38387  428610  42729   8889  3  0x1c000083  thrsleep      golangbuild
+ 42729  347911  51099   8889  3  0x18000083  thrsleep      bbagent
+
+ 42729  432576  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  507173  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  454157  51099   8889  3  0x1c000083  thrsleep      bbagent
+
+ 42729  203519  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  255141  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729    5088  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  234930  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  163917  51099   8889  3  0x1c000083  wait          bbagent
+
+ 42729  114951  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  122025  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  172984  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  202575  51099   8889  3  0x1c000083  thrsleep      bbagent
+
+ 42729  215370  51099   8889  3  0x1c000083  thrsleep      bbagent
+ 42729  132869  51099   8889  3  0x1c000083  kqread        bbagent
+ 51099  413549  95837   8889  3  0x1a200083  kqsel         python3.10
+ 95837  149212  14926   8889  3  0x1a200083  kqread        python3.10
+ 95837  411306  14926   8889  3  0x1e200083  fsleep        python3.10
+ 95837   48071  14926   8889  3  0x1e200083  kqread        python3.10
+
+ 14926  134593  61598   8889  3  0x1a200083  kqsel         python3.10
+ 14926  311832  61598   8889  3  0x1e200083  fsleep        python3.10
+
+ 61598  523265  39244   8889  3  0x18000083  thrsleep      bootstrapswarm
+ 61598  150700  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  434346  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  307531  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  425280  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  302118  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  107053  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  486759  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598  149751  39244   8889  3  0x1c000083  thrsleep      bootstrapswarm
+ 61598   88720  39244   8889  3  0x1c000083  wait          bootstrapswarm
+ 39244  220136  12210   8889  3   0x810008b  sigsusp       sh
+ 79599  182669  35940   8890  3   0x810008b  sigsusp       sh
+ 12210   77915  38043   8889  3   0x8100083  ttyin         ksh
+ 38043  306961  64467   8889  3  0x18000098  kqread        sshd-session
+ 64467  123705    933      0  3  0x18000092  kqread        sshd-session
+
+ 35940  155101  96281   8890  3   0x8100083  ttyin         ksh
+ 96281  446925  41485   8890  3  0x18000098  kqread        sshd-session
+
+ 41485  426426    933      0  3  0x18000092  kqread        sshd-session
+
+ 74124  348978  26013   1000  3   0x8100083  ttyin         ksh
+ 26013  449630  94794   1000  3  0x18000098  kqread        sshd-session
+ 94794  101164    933      0  3  0x18000092  kqread        sshd-session
+
+  3098  144717  76148      0  3   0x8100083  ttyin         ksh
+ 76148  360915  70745      0  3  0x18000098  kqread        sshd-session
+ 70745  200214    933      0  3  0x18000092  kqread        sshd-session
+ 78801  415695      1      0  3  0x18100083  ttyin         getty
+ 61903   39153      1      0  3  0x18100098  kqread        cron
+   933  293241      1      0  3  0x18000088  kqread        sshd
+ 52872  132047      1      0  3  0x18100080  kqread        ntpd
+ 66979  169370  25830     83  3  0x18100092  kqread        ntpd
+ 25830  350553      1     83  3  0x19100092  kqread        ntpd
+ 25455   17727  82750     74  3  0x19100092  bpf           pflogd
+ 82750  234356      1      0  3  0x18000080  sbwait        pflogd
+ 73331  201511  17708     73  3  0x19100090  kqread        syslogd
+ 17708  159621      1      0  3  0x18100082  sbwait        syslogd
+ 66335  393580      1      0  3  0x18100080  kqread        resolvd
+
+ 50329  217553  91666     77  3  0x18100092  kqread        dhcpleased
+  7376  182371  91666     77  3  0x18100092  kqread        dhcpleased
+ 91666   95913      1      0  3  0x18000080  kqread        dhcpleased
+ 75138  198797      0      0  3     0x14200  bored         smr
+
+ 99197  178781      0      0  2     0x14200                zerothread
+ 48925  192615      0      0  3     0x14200  aiodoned      aiodoned
+
+ 80695  377095      0      0  3     0x14200  syncer        update
+ 83000   44404      0      0  3     0x14200  cleaner       cleaner
+
+*40908  364300      0      0  7     0x14200                reaper
+ 32885  317577      0      0  3     0x14200  pgdaemon      pagedaemon
+
+ 81399  164147      0      0  3     0x14200  usbtsk        usbtask
+ 36593  296157      0      0  3     0x14200  usbatsk       usbatsk
+ 29086  451768      0      0  3     0x14200  bored         ipmicmd
+ 88233  518005      0      0  3     0x14200  ipmi_poll     ipmi0
+ 86853  323932      0      0  3     0x14200  bored         sensors
+ 91004  409523      0      0  3  0x40014200                idle7
+ 32163  174833      0      0  3  0x40014200                idle6
+
+  5482  165293      0      0  3  0x40014200                idle5
+ 69358  156033      0      0  3  0x40014200                idle4
+
+ 90561  427124      0      0  3  0x40014200                idle3
+  2418  395151      0      0  3  0x40014200                idle2
+ 42883  303287      0      0  3  0x40014200                idle1
+ 25473  220806      0      0  3     0x14200  bored         softnet3
+ 35628   45935      0      0  3     0x14200  bored         softnet2
+ 51877  417159      0      0  3     0x14200  bored         softnet1
+  1176  116521      0      0  3     0x14200  bored         softnet0
+ 11595    6974      0      0  3     0x14200  bored         systqmp
+ 79686  475989      0      0  3     0x14200  bored         systq
+ 10827  102031      0      0  3     0x14200  tmoslp        softclockmp
+ 69338  237995      0      0  3  0x40014200  tmoslp        softclock
+ 30632  294788      0      0  3  0x40014200                idle0
+ 79360  147974      0      0  3     0x14200  kmalloc       kmthread
+     1  501597      0      0  3   0x8000082  wait          init
+     0       0     -1      0  3     0x10200  scheduler     swapper
+
+
+ddb{2}> show extents
+
+extent `swapmap' (0x1 - 0x7fffffff), flags=0
+     0x1 - 0x810000
+
+extent `ppb10 pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0x803fffff
+
+     0x80800000 - 0x80bfffff
+
+     0x81000000 - 0x81043fff
+
+     0x81050000 - 0x81053fff
+
+     0xfff00000 - 0xffffffffffffffff
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0xffefffff
+
+     0xffff0000 - 0x621ffffffffff
+
+     0x6224000000000 - 0xffffffffffffffff
+
+extent `pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0x1
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0x7fffffff
+
+     0xffff0000 - 0x6207fffffffff
+
+     0x620c000000000 - 0xffffffffffffffff
+
+extent `pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0x1
+
+extent `ppb8 pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0x1
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0x7fffffff
+
+     0xffff0000 - 0x6203fffffffff
+     0x6208000000000 - 0xffffffffffffffff
+
+extent `pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0xff
+
+extent `ppb7 pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0x1
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0x7fffffff
+
+     0xffff0000 - 0x61fffffffffff
+
+     0x6204000000000 - 0xffffffffffffffff
+
+extent `pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0xff
+
+extent `ppb6 pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0x8101ffff
+
+     0xfff00000 - 0xffffffffffffffff
+extent `ppb5 pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0xffffffffffffffff
+
+extent `ppb5 pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0xff
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+     0x0 - 0xffffffff
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0xffefffff
+
+     0xffff0000 - 0x6027fffffffff
+
+     0x602c000000000 - 0xffffffffffffffff
+extent `pcibus' (0x0 - 0xff), flags=0
+     0x0 - 0x2
+
+extent `ppb4 pcipmem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0x602400005ffff
+     0x6027f80000000 - 0xffffffffffffffff
+
+extent `ppb4 pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0x7fffffff
+     0x82000000 - 0xffffffffffffffff
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+
+     0x0 - 0xffffffff
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0x81ffffff
+     0xffff0000 - 0x6027f7fffffff
+
+     0x6028000000000 - 0xffffffffffffffff
+extent `pcibus' (0x0 - 0xff), flags=0
+     0x0 - 0x1
+
+extent `ppb3 pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0x80011fff
+
+     0xfff00000 - 0xffffffffffffffff
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0xffefffff
+
+     0xffff0000 - 0x601ffffffffff
+
+     0x6024000000000 - 0xffffffffffffffff
+extent `pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0x1
+extent `ppb2 pcibus' (0x0 - 0xff), flags=0
+     0x0 - 0x1
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0x7fffffff
+     0xffff0000 - 0x6007fffffffff
+     0x600c000000000 - 0xffffffffffffffff
+
+extent `pcibus' (0x0 - 0xff), flags=0
+     0x0 - 0xff
+
+extent `ppb1 pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0x80003fff
+
+     0xfff00000 - 0xffffffffffffffff
+
+extent `pciio' (0x0 - 0xffffffff), flags=0
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+     0x0 - 0xffefffff
+
+     0xffff0000 - 0x6003fffffffff
+     0x6008000000000 - 0xffffffffffffffff
+extent `pcibus' (0x0 - 0xff), flags=0
+     0x0 - 0x1
+
+extent `ppb0 pcibus' (0x0 - 0xff), flags=0
+     0x0 - 0x1
+extent `pciio' (0x0 - 0xffffffff), flags=0
+
+     0x0 - 0xffffffff
+
+extent `pcimem' (0x0 - 0xffffffffffffffff), flags=0
+
+     0x0 - 0x7fffffff
+
+     0xffff0000 - 0x5ffffffffffff
+     0x6004000000000 - 0xffffffffffffffff
+
+extent `pcibus' (0x0 - 0xff), flags=0
+
+     0x0 - 0xff
+
+ddb{2}> show map
+
+MAP 0x9f1b6c: [0xeb610078eb410070->0xeb210068382100a0]
+        brk() allocate range: 0xe801001081810008-0x7c0803a67d920120
+
+        stack allocate range: 0x3d82fffce98c2e88-0x7c0802a67d6b0278
+        sz=2143548280, ref=1273439229, version=3915448416, flags=0x60000000
+
+dar 0x8864001770630011 dsisr 0x40000000
+
+trap type 300 srr1 9000000000009032 at 773b38 lr 773b20
+
+Stopped at      uvm_map_printit+0x120:  ld r5,16(r4)
+
+ddb{2}> show page /f
+
+PAGE 0x773b38:
+  flags=7fc903a6<WANTED,TABLED,RELEASED,RDONLY,ZERO,DEV,FREE,ENCRYPT,PMAP0,PMAP
+
+1,PMAP2,PMAP3,PMAP4,PMAP5>, vers=2144138104, wire_count=946014115, pa=0x4e80042
+1e8410018
+
+  uobject=0x4e800421e8410018, uanon=0xe8bc0118e8fc0126, offset=0xe89c012a3c62ff
+
+ef
+
+  [page ownership tracking disabled]    vm_page_md 0x773ba0
+
+  >>> page not found in uvm_pmemrange <<<
+
+ddb{2}> show uvmexp
+
+Current UVM status:
+  pagesize=4096 (0x1000), pagemask=0xfff, pageshift=12
+  7890113 VM pages: 194169 active, 447892 inactive, 1 wired, 5578215 free (6588
+71 zero)
+
+  min  10% (25) anon, 10% (25) vnode, 5% (12) vtext
+
+  freemin=263003, free-target=350670, inactive-target=0, wired-max=2630037
+  faults=114779817, traps=173554148, intrs=68992606, ctxswitch=52721955 fpuswit
+ch=0
+
+  softint=23559425, syscalls=79527143, kmapent=53
+  fault counts:
+
+    noram=0, noanon=0, noamap=0, pgwait=0, pgrele=0
+    ok relocks(total)=2182749(2198082), anget(retries)=22380249(0), amapcopy=85
+
+33685
+
+    neighbor anon/obj pg=2076791/37167534, gets(lock/unlock)=12729535/2198522
+    cases: anon=20915932, anoncow=1464317, obj=11756751, prcopy=957009, przero=
+
+79685586
+  daemon and swap counts:
+    woke=0, revs=0, scans=0, obscans=0, anscans=0
+
+    busy=0, freed=0, reactivate=0, deactivate=0
+
+    pageouts=0, pending=0, nswget=0
+
+    nswapdev=1
+    swpages=8454143, swpginuse=0, swpgonly=0 paging=0
+  kernel pointers:
+    objs(kern)=0x106eac8
+
+
+
+
+ddb{2}> machine ddbcpu 0
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+ddb{0}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+
+_kernel_lock+0xe0
+
+xive_hvi+0x1a0
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+_kernel_lock+0xe8
+
+proc_trampoline_mi+0x19c
+
+proc_trampoline
+
+ddb{0}> machine ddbcpu 1
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+ddb{1}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+
+xive_setipl+0xc0
+
+splraise+0x4c
+
+mtx_enter_try+0x78
+
+mtx_enter+0x48
+
+pmap_extract+0x90
+
+uvm_fault_upper_lookup+0x14c
+
+uvm_fault+0x14c
+trap+0x4a8
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+End of kernel: 0x437da6eb0 lr 0x1ee00
+
+ddb{1}> machine ddbcpu 3
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+ddb{3}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+
+_kernel_lock+0xe8
+
+vn_closefile+0x44
+fdrop+0xc8
+
+closef+0xe4
+
+syscall+0x558
+
+trap+0x5dc
+
+trapagain+0x4
+
+--- syscall (number 6) ---
+
+End of kernel: 0xbffffbd2d691a600 lr 0x412043020
+
+ddb{3}> machine ddbcpu 4
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+cpu_intr+0x50
+
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+
+pte_insert+0x1f4
+pmap_enter+0x31c
+
+uvm_fault_lower_lookup+0x28c
+
+uvm_fault_lower+0x7c
+
+uvm_fault+0x200
+
+trap+0x4a8
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+End of kernel: 0xbffff1d3d01daf10 lr 0x6fa80
+
+ddb{4}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+pte_insert+0x1f4
+
+pmap_enter+0x31c
+
+uvm_fault_lower_lookup+0x28c
+
+uvm_fault_lower+0x7c
+
+uvm_fault+0x200
+
+trap+0x4a8
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+End of kernel: 0xbffff1d3d01daf10 lr 0x6fa80
+
+ddb{4}> machine ddbcpu 5
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+cpu_intr+0x50
+
+xive_hvi+0x1b8
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+sched_choosecpu+0x3e4
+
+setrunqueue+0x54
+
+setrunnable+0x10c
+
+wakeup_n+0x1c0
+rw_exit_read+0xc8
+
+vm_map_unlock_read_ln+0x38
+
+uvmfault_unlockall+0xc0
+
+uvm_fault_lower+0xa48
+
+uvm_fault+0x200
+
+ddb{5}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+hvi_intr+0x38
+trap+0xd4
+
+trapagain+0x4
+--- trap (type 0xea0) ---
+
+sched_choosecpu+0x3e4
+
+setrunqueue+0x54
+setrunnable+0x10c
+
+wakeup_n+0x1c0
+
+rw_exit_read+0xc8
+
+vm_map_unlock_read_ln+0x38
+uvmfault_unlockall+0xc0
+
+uvm_fault_lower+0xa48
+
+uvm_fault+0x200
+
+trap+0x4a8
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+End of kernel: 0x420789438 lr 0x22454
+
+ddb{5}> machine ddbcpu 6
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+cpu_intr+0x50
+
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+
+pmap_fill_pte+0x10
+uvm_fault_lower+0x8dc
+
+uvm_fault+0x200
+
+trap+0x7a4
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+kcopy+0x3c
+
+uiomove+0x1f4
+
+ffs_write+0x3c4
+
+VOP_WRITE+0x54
+
+ddb{6}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+
+pmap_fill_pte+0x10
+uvm_fault_lower+0x8dc
+
+uvm_fault+0x200
+
+trap+0x7a4
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+kcopy+0x3c
+
+uiomove+0x1f4
+
+ffs_write+0x3c4
+
+VOP_WRITE+0x54
+
+vn_rdwr+0xb0
+
+coredump_write+0x104
+
+coredump_elf+0x138
+
+coredump+0x3a8
+
+sigexit+0x88
+
+trapsignal+0x434
+
+trap+0x8f8
+
+trapagain+0x4
+
+--- trap (type 0x400) ---
+
+End of kernel: 0xc00000b630 lr 0x0
+
+ddb{6}> machine ddbcpu 7
+
+Stopped at      cpu_intr+0x50:  ori r0,r0,0x0
+cpu_intr+0x50
+
+xive_hvi+0x1b8
+
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+uvm_fault+0x90
+
+trap+0x4a8
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+End of kernel: 0xbffffd0158621b88 lr 0x83094
+
+ddb{7}> trace
+
+cpu_intr+0x50
+xive_hvi+0x1b8
+hvi_intr+0x38
+
+trap+0xd4
+
+trapagain+0x4
+
+--- trap (type 0xea0) ---
+uvm_fault+0x90
+
+trap+0x4a8
+
+trapagain+0x4
+
+--- trap (type 0x300) ---
+
+End of kernel: 0xbffffd0158621b88 lr 0x83094
+
+
+
+
+ddb{2}> boot dump
+
+syncing disks...
+
+after a long wait with no output, power cycled the machine fearing that the core dump would just fill the disk.
+
