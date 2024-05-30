@@ -1,8 +1,7 @@
 In various places you may see me publish a file with
 Copyright (c) 20xx Eric Grosse n2vi.com/BSD2.txt
 which means that file is licensed by the following.
-I have since learned the "Zero-Clause BSD" license is what I was aiming
-for and am updating the reference when editing for some other reason.
+These days I refer to the identical n2vi.com/0BSD.
 
 Permission to use, copy, modify, and distribute this software for any
 purpose with or without fee is hereby granted, provided that the
